@@ -27,6 +27,17 @@ app.use("/callback/pathao", (req, res) => {
     .json({ message: "Accepted" });
 });
 
+app.use("/callback", (req, res) => {
+  const { query, params, body } = req;
+
+  const output = { query, params, body };
+  console.log(JSON.stringify(output, null, 2));
+
+  res
+    .status(200)
+    .json({ message: "Successful" });
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
